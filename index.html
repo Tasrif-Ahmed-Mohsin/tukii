@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Taslima</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #ffc2d1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      color: #ff3366;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeIn 2s ease;
+    }
+    h1 {
+      font-size: 3em;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 30px;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .yes {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    .no {
+      background-color: white;
+      color: #ff4d4d;
+      border: 2px solid #ff4d4d;
+    }
+    .yes:hover, .no:hover {
+      transform: scale(1.1);
+    }
+    .scene {
+      margin-top: 20px;
+      position: relative;
+    }
+    .scene img {
+      max-height: 200px;
+    }
+    .fire {
+      position: absolute;
+      top: 0;
+      left: 50%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Taslima</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f0, #ffc2d1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      color: #ff3366;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeIn 2s ease;
+    }
+    h1 {
+      font-size: 3em;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 30px;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .yes {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    .no {
+      background-color: white;
+      color: #ff4d4d;
+      border: 2px solid #ff4d4d;
+    }
+    .yes:hover, .no:hover {
+      transform: scale(1.1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1 id="question">Do you love me, Taslima?</h1>
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes</button>
+      <button class="no" onclick="sayNo()">No</button>
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      const container = document.getElementById('container');
+      container.innerHTML = `
+        <h1>I love you too! ❤️</h1>
+      `;
+    }
+
+    function sayNo() {
+      const container = document.getElementById('container');
+      container.innerHTML = `
+        <h1>How rude... 😠</h1>
+        <h2>Answer correctly : Do you love me, Taslima?</h2>
+        <div class="buttons">
+          <button class="yes" onclick="sayYes()">Yes</button>
+          <button class="no" onclick="sayNo()">No</button>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
