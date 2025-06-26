@@ -1,152 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Taslima</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Button Game</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #ffe6f0, #ffc2d1);
+      background-color: #ffe6eb;
+      font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: 'Roboto', sans-serif;
-      color: #ff3366;
-      text-align: center;
-      overflow: hidden;
-      animation: fadeIn 2s ease;
+      margin: 0;
     }
-    h1 {
-      font-size: 3em;
-      font-family: 'Pacifico', cursive;
-      margin-bottom: 30px;
-    }
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
-    }
-    button {
-      font-size: 1.2em;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .yes {
-      background-color: #ff4d4d;
-      color: white;
-    }
-    .no {
-      background-color: white;
-      color: #ff4d4d;
-      border: 2px solid #ff4d4d;
-    }
-    .yes:hover, .no:hover {
-      transform: scale(1.1);
-    }
-    .scene {
-      margin-top: 20px;
+
+    #questionContainer {
       position: relative;
-    }
-    .scene img {
-      max-height: 200px;
-    }
-    .fire {
-      position: absolute;
-      top: 0;
-      left: 50%;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Taslima</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #ffe6f0, #ffc2d1);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Roboto', sans-serif;
-      color: #ff3366;
+      width: 350px;
+      height: 250px;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       text-align: center;
       overflow: hidden;
-      animation: fadeIn 2s ease;
     }
-    h1 {
-      font-size: 3em;
-      font-family: 'Pacifico', cursive;
-      margin-bottom: 30px;
+
+    #heartLoader {
+      font-size: 20px;
+      animation: pulse 3s infinite;
+      margin-top: 100px;
     }
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 20px;
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
-    button {
-      font-size: 1.2em;
-      padding: 15px 30px;
+
+    .btn {
+      padding: 10px 20px;
       border: none;
-      border-radius: 30px;
+      border-radius: 10px;
+      font-size: 18px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: absolute;
+      transition: all 0.2s ease;
     }
-    .yes {
-      background-color: #ff4d4d;
+
+    #yesBtn {
+      bottom: 20px;
+      left: 20px;
+      background-color: #28a745;
       color: white;
     }
-    .no {
-      background-color: white;
-      color: #ff4d4d;
-      border: 2px solid #ff4d4d;
+
+    #noBtn {
+      bottom: 20px;
+      right: 20px;
+      background-color: #dc3545;
+      color: white;
+      width: 80px;
+      height: 40px;
     }
-    .yes:hover, .no:hover {
-      transform: scale(1.1);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+
+    #resultContainer {
+      display: none;
+      font-size: 24px;
+      color: #ff2d55;
+      margin-top: 90px;
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1 id="question">Do you love me, Shundriii ?</h1>
-    <div class="buttons">
-      <button class="yes" onclick="sayYes()">Yes</button>
-      <button class="no" onclick="sayNo()">No</button>
-    </div>
+  <div id="questionContainer">
+    <div id="heartLoader">Do you love me , Shundriii ❤️</div>
+    <button id="yesBtn" class="btn">Yes</button>
+    <button id="noBtn" class="btn">No</button>
+    <div id="resultContainer">I love you too ..ami jantam 💖</div>
   </div>
 
   <script>
-    function sayYes() {
-      const container = document.getElementById('container');
-      container.innerHTML = `
-        <h1>I love you too! ❤️</h1>
-      `;
-    }
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionContainer = document.getElementById("questionContainer");
+    const heartLoader = document.getElementById("heartLoader");
+    const resultContainer = document.getElementById("resultContainer");
 
-    function sayNo() {
-      const container = document.getElementById('container');
-      container.innerHTML = `
-        <h1>How rude... 😠</h1>
-        <h2>Answer correctly : Do you love me, Tukii?</h2>
-        <div class="buttons">
-          <button class="yes" onclick="sayYes()">Yes</button>
-          <button class="no" onclick="sayNo()">No</button>
-        </div>
-      `;
-    }
+    noBtn.addEventListener("mouseover", () => {
+      const maxX = questionContainer.offsetWidth - noBtn.offsetWidth;
+      const maxY = questionContainer.offsetHeight - noBtn.offsetHeight;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      setTimeout(() => {
+        heartLoader.style.display = "none";
+        resultContainer.style.display = "inherit";
+      }, 1000);
+    });
   </script>
 </body>
 </html>
