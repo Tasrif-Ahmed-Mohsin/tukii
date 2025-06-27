@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Love Button Game</title>
+  <title>Love Button Game with Cat</title>
   <style>
-    * {
-      box-sizing: border-box;
-      touch-action: manipulation;
-    }
-
     body {
       background-color: #ffe6eb;
       font-family: Arial, sans-serif;
@@ -22,21 +17,22 @@
 
     #questionContainer {
       position: relative;
-      width: 90vw;
-      max-width: 350px;
-      height: 300px;
+      width: 550px;
+      height: 400px;
       background-color: #fff0f5;
       border-radius: 15px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
       overflow: hidden;
+      padding-top: 20px;
     }
 
     #heartLoader {
-      font-size: 1.2rem;
-      text-align: center;
+      font-size: 20px;
+     up: 20px;
+      left: 20px;
       animation: pulse 3s infinite;
-      margin-top: 80px;
+      margin-bottom: 100px;
     }
 
     @keyframes pulse {
@@ -45,46 +41,184 @@
     }
 
     .btn {
-      padding: 12px 20px;
+      padding: 10px 20px;
       border: none;
       border-radius: 10px;
-      font-size: 16px;
+      font-size: 18px;
+      cursor: pointer;
       position: absolute;
-      transition: transform 0.2s ease, top 0.2s ease, left 0.2s ease;
-      white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
     #yesBtn {
-      bottom: 15px;
-      left: 15px;
+      bottom: 20px;
+      left: 20px;
       background-color: #28a745;
       color: white;
     }
 
     #noBtn {
+      bottom: 20px;
+      right: 20px;
       background-color: #dc3545;
       color: white;
       width: 80px;
       height: 40px;
-      bottom: 15px;
-      right: 15px;
     }
 
     #resultContainer {
       display: none;
-      font-size: 1.2rem;
+      font-size: 24px;
       color: #ff2d55;
-      text-align: center;
-      margin-top: 100px;
+      margin-top: 200px;
+    }
+
+    /* --- Cat Styles --- */
+    .cat {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: orange;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: visible; /* <== important */
+}
+
+
+    .ear {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid orange;
+  top: -27px;
+  z-index: 0;
+}
+
+.ear.left {
+  left: 5px;
+  transform: rotate(-20deg);
+}
+
+.ear.right {
+  right: 5px;
+  transform: rotate(20deg);
+}
+
+
+    .eye {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: white;
+      border-radius: 50%;
+      top: 50px;
+    }
+
+    .eye::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: black;
+      border-radius: 50%;
+      top: 8px;
+      left: 8px;
+      animation: roll 2s infinite linear;
+    }
+
+    .eye.left {
+      left: 35px;
+    }
+
+    .eye.right {
+      right: 35px;
+    }
+
+    .nose {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 10px solid pink;
+    }
+
+    .mouth {
+      position: absolute;
+      top: 112px;
+      left: 50%;
+      width: 20px;
+      height: 14px;
+      border-bottom: 2px solid #000;
+      border-radius: 0 0 50% 50%;
+      transform: translateX(-50%);
+    }
+
+    .whisker {
+      position: absolute;
+      width: 35px;
+      height: 2px;
+      background: black;
+      top: 100px;
+    }
+
+    .whisker.left1 {
+      left: 20px;
+      transform: rotate(10deg);
+    }
+
+    .whisker.left2 {
+      left: 20px;
+      top: 105px;
+      transform: rotate(-10deg);
+    }
+
+    .whisker.right1 {
+      right: 20px;
+      transform: rotate(-10deg);
+    }
+
+    .whisker.right2 {
+      right: 20px;
+      top: 105px;
+      transform: rotate(10deg);
+    }
+
+    @keyframes roll {
+      0%   { transform: rotate(0deg) translateX(0); }
+      25%  { transform: rotate(90deg) translateX(3px); }
+      50%  { transform: rotate(180deg) translateX(0); }
+      75%  { transform: rotate(270deg) translateX(-3px); }
+      100% { transform: rotate(360deg) translateX(0); }
     }
   </style>
 </head>
 <body>
   <div id="questionContainer">
-    <div id="heartLoader">    Do you love me, Shundriii ❤️</div>
+    <div id="heartLoader">Do you love me , Shundriii ❤️</div>
+    
+    <!-- CAT -->
+    <div class="cat">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="mouth"></div>
+      <div class="whisker left1"></div>
+      <div class="whisker left2"></div>
+      <div class="whisker right1"></div>
+      <div class="whisker right2"></div>
+    </div>
+
     <button id="yesBtn" class="btn">Yes</button>
     <button id="noBtn" class="btn">No</button>
-    <div id="resultContainer">I love you too .. ami jantam 💖</div>
+    <div id="resultContainer">I love you too ..ami jantam 💖</div>
   </div>
 
   <script>
@@ -94,13 +228,11 @@
     const heartLoader = document.getElementById("heartLoader");
     const resultContainer = document.getElementById("resultContainer");
 
-    noBtn.addEventListener("mouseenter", () => {
-      const containerRect = questionContainer.getBoundingClientRect();
-      const btnRect = noBtn.getBoundingClientRect();
-      const maxX = questionContainer.clientWidth - noBtn.offsetWidth;
-      const maxY = questionContainer.clientHeight - noBtn.offsetHeight;
-      const newX = Math.max(0, Math.floor(Math.random() * maxX));
-      const newY = Math.max(0, Math.floor(Math.random() * maxY));
+    noBtn.addEventListener("mouseover", () => {
+      const maxX = questionContainer.offsetWidth - noBtn.offsetWidth;
+      const maxY = questionContainer.offsetHeight - noBtn.offsetHeight;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
       noBtn.style.left = `${newX}px`;
       noBtn.style.top = `${newY}px`;
     });
@@ -108,8 +240,8 @@
     yesBtn.addEventListener("click", () => {
       setTimeout(() => {
         heartLoader.style.display = "none";
-        resultContainer.style.display = "block";
-      }, 500);
+        resultContainer.style.display = "inherit";
+      }, 1000);
     });
   </script>
 </body>
